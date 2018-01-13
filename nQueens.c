@@ -38,7 +38,7 @@ void recQueenSolver(int dim, int col, int rows[], int cols[], int slash[], int b
             rows[row] = col+1;
             cols[col] = col+1;
             slash[row + col] = col+1;
-            backslash[row-col + (dim-1)] = col+1;
+            backslash[row-col+(dim-1)] = col+1;
             
             //continue solving recursively
             recQueenSolver(dim, col+1, rows, cols, slash, backslash);
@@ -47,7 +47,7 @@ void recQueenSolver(int dim, int col, int rows[], int cols[], int slash[], int b
             rows[row] = 0;
             cols[col] = 0;
             slash[row + col] = 0;
-            backslash[row-col + (dim-1)] = 0;
+            backslash[row-col+(dim-1)] = 0;
         }
     }
 
@@ -57,12 +57,12 @@ void recQueenSolver(int dim, int col, int rows[], int cols[], int slash[], int b
 void nQueensSolver(int n){
     int rows[n];
     int cols[n];
-    int slash[n*2-2];
-    int backslash[n*2-2];
+    int slash[n*2-1];
+    int backslash[n*2-1];
 
     //initialize arrays to 0
     int i;
-    for(i = 0; i < n*2-2; i++){
+    for(i = 0; i < n*2-1; i++){
         if(i < n){
             rows[i] = 0;
             cols[i] = 0;
