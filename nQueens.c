@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 
 int numSolutions = 0;
 
@@ -72,7 +72,9 @@ void nQueensSolver(int n){
         backslash[i] = 0;
     }
 
+    //run recursive solution
     recQueenSolver(n, 0, rows, cols, slash, backslash);
+
     printf("Found %d solutions to %d Queen problem.", numSolutions, n);
     return;
 }
@@ -83,8 +85,7 @@ int main(int argc, char *argv[]){
     if(argc > 1){
         nQueensSolver(atoi(argv[1]));
     } else {
-        printf("No dimension specified. Running 8 Queen solver.\n");
-        nQueensSolver(8);
+        printf("No dimension specified.\n");
     }
 
     return 0;
